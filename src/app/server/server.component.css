@@ -6,3 +6,33 @@
   width: 300px;
   border-color: cornflowerblue;
 }
+
+
+
+.flex-container-outline {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.flex-container-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 30%;
+}
+
+.flex-container-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 30%;
+}
+

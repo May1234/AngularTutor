@@ -1,50 +1,48 @@
-<h4>This is a Component Example. </h4>
-<p> Server with ID {{ serverId }}  is {{ serverStatus }} </p>
-<p> {{ 'Server' }} with ID {{ serverId }}  is {{ serverStatus }} </p>
-<p> {{ 'Server' }} with ID {{ serverId }}  is {{ getServerStatus() }} </p>
 
-<hr>
-<h4>This is a counter</h4>
-<p> {{ counter }} </p>
-<button class="btn btn-primary" (click)="counterPlus()" style="margin-right: 10px"> Add One</button>
-<button class="btn btn-primary" (click)="resetCounter()"> Reset Counter</button>
+<div class="flex-container-outline">
 
-<hr>
-<h4>This is a input Box with Event Binding</h4>
-<div>
-  <span>User Name: </span>
-  <input type="text" (input)="onUpdateUserName($event)">
-</div>
 
-<div>
-  <span>Password: </span>
-  <input type="password">
-</div>
-<div *ngIf="isLogin" class="informBoxBoarder"> You Loggedin as {{ userName }} </div>
-<button class="btn btn-light" (click)="login()" style="margin-right: 10px"> Login </button>
-<button class="btn btn-light" (click)="signOut()"> Sign Out </button>
+<div class = "flex-container-left">
+  <img src="assets/frame1.png" alt = "vegetables" style =" width: 100px; height: 70px;">
 
-<hr>
-<h4>This is a input Box with Two Way Data Binding</h4>
-<div>
-  <span>User Name: </span>
-  <input type="text" [(ngModel)]="userName">
-</div>
+  <div  *ngFor="let number of [0,1]">
 
-<div>
-  <span>Password: </span>
-  <input type="password">
-</div>
-<div *ngIf="isLogin" class="informBoxBoarder"> You Loggedin as {{ userName }} </div>
-<button class="btn btn-light" (click)="login()" style="margin-right: 10px"> Login </button>
-<button class="btn btn-light" (click)="signOut()"> Sign Out </button>
 
-<hr>
-<h4>This is a StudentList managed by ngfor loop</h4>
-<div *ngFor="let student of students">
-  <div style="margin-bottom: 2px;border-left: solid 2px; border-right: solid 2px; border-bottom: solid 2px; border-top: solid 2px; display: flex; justify-content: space-between">
-    <div><span style="color: cornflowerblue; margin-right: 5px">Student Name: </span> <span> {{ student.name }}</span></div>
+        <label style="width:70px;"><input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{vegetables[number*3]}}" (change)="onItemChange(vegetables[number*3])"  >{{vegetables[number*3]}}</label>
+        <label style="width:70px;"><input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{vegetables[number*3+1]}}" (change)="onItemChange(vegetables[number*3+1])"  >{{vegetables[number*3+1]}}</label>
+        <label style="width:70px;"><input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{vegetables[number*3+2]}}" (change)="onItemChange(vegetables[number*3+2])"  >{{vegetables[number*3+2]}}</label>
 
-    <div><span style="color: cornflowerblue; margin-right: 5px;">Student Major: </span> <span>{{ student.major }}</span></div>
+
   </div>
+  <img src="assets/frame_meat.png" alt = "vegetables" style =" width: 100px; height: 70px;">
+  <div  *ngFor="let number of [0,1]">
+
+    <div class="radio" >
+      <label style="width:70px;"><input type="radio" [(ngModel)]="radioSelected_meat" value="{{meats[number*3]}}" (change)="onItemChange_Meat(meats[number*3])"  >{{meats[number*3]}}</label>
+      <label style="width:70px;"><input type="radio" [(ngModel)]="radioSelected_meat" value="{{meats[number*3+1]}}" (change)="onItemChange_Meat(meats[number*3+1])"  >{{meats[number*3+1]}}</label>
+      <label style="width:70px;"><input type="radio" [(ngModel)]="radioSelected_meat" value="{{meats[number*3+2]}}" (change)="onItemChange_Meat(meats[number*3+2])"  >{{meats[number*3+2]}}</label>
+    </div>
+
+  </div>
+
 </div>
+
+<div class = "flex-container-right">
+
+  <div><img src="assets/{{cookPic}}"  style =" width: 300px; height: 150px; margin-bottom: 70px; "></div>
+  <div>
+    <div style = "height: 10px; width: 100%; background:#ddd; margin-bottom: 30px;">
+      <div style = "height: 10px; background: green" [ngStyle]="{'width.%': pwidth}"></div>
+    </div>
+    <button class= "btn btn-primary" (click)="cook()" [disabled] ="!disableBtn" style="margin-right: 20px;" >试试我的手艺 </button>
+    <button class= "btn btn-primary" (click)="reSetitem()" >重新选一下</button>
+  </div>
+  <div *ngIf="isCooked" ><img src="assets/{{dishPic}}"  style =" width: 300px; height: 200px; margin-top: 30px; "> </div>
+  <div *ngIf="isBad" style="margin-top: 50px;" ><h2>差一点点味道!😉</h2></div>
+</div>
+</div>
+
+
+
+
+
